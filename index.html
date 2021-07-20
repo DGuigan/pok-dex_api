@@ -2,9 +2,36 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="./css/style.css">
         <title>Pokémon API</title>
     </head>
     <body>
-        
+        <nav>
+            <h1>David's Pokédex</h1>
+            <h5>All data from the <a href="https://pokeapi.co">PokeAPI</a></h5>
+        </nav>
+        <form id="pokemon-search-form">
+            <input id="pokemon-search-input" name="pokemon-search-id" type="text" placeholder="Search by name or ID">
+            <input id="search-btn" type="submit" value="?">
+        </form>
+        <div id="pokemon-pane">
+            <h2 id="pp-name"></h2>
+            <img id="pp-img">
+            <input id="last-img-btn" type="button" value="&lt-">
+            <input id="next-img-btn" type="button" value="-&gt">
+            <div>
+                <h3>Types</h3>
+                <ul id="pp-types"></ul>
+            </div>
+            <div>
+                <h3>Stats</h3>
+                <ul id="pp-stats"></ul>
+            </div>
+        </div>
+        <input id="dec-pokemon-btn" type="button" value="Previous Pokémon">
+        <input id="inc-pokemon-btn" type="button" value="Next Pokémon">
+
+        <script src="./javascripts/pokemon.js" type="module"></script>
+        <script src="./javascripts/utility.js" type="module"></script>
     </body>
 </html>
