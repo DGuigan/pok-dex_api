@@ -1,4 +1,70 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 100vw;
+    height: 100vh;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: row;
+
+    width: 100%;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mid {
+    display: flex;
+    flex-direction: column;
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pokemon-pane {
+    display: flex;
+}
+
+#pp-left {
+    display: flex;
+    flex-direction: column;
+}
+
+#pp-right {
+    display: flex;
+    flex-direction: column;
+}
+
+#search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#img-btns {
+    display: flex;
+    justify-content: space-evenly;
+
 }
