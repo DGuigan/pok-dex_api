@@ -46,7 +46,10 @@ function displayPokemon(pokemon) {
 
     ppStats.innerHTML = '';
     for (let statObj of pokemon.stats) {
-        ppStats.append(buildElement('li', `${statObj.stat.name}: ${statObj.base_stat}`, statObj.stat.url));
+        let row = document.createElement('tr');
+        row.append(buildElement('td', statObj.stat.name));
+        row.append(buildElement('td', statObj.base_stat));
+        ppStats.append(row);
     }
 };
 
