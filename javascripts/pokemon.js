@@ -44,12 +44,8 @@ function displayPokemon(pokemon) {
         ppTypes.append(buildElement('li', typeObj.type.name));
     }
 
-    ppStats.innerHTML = '';
     for (let statObj of pokemon.stats) {
-        let row = document.createElement('tr');
-        row.append(buildElement('td', statObj.stat.name));
-        row.append(buildElement('td', statObj.base_stat));
-        ppStats.append(row);
+        document.getElementById(`td-${statObj.stat.name}`).innerHTML = statObj.base_stat;
     }
 };
 

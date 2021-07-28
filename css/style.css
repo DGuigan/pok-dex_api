@@ -168,3 +168,15 @@ body {
 .hover {
     cursor: url("../images/pokeball_open.png"), auto;
 }
+
+td.center-text {
+    text-align: center;
+}
+
+td {
+    width: 50%;
+}
+
+table {
+    width: 100%;
+}
