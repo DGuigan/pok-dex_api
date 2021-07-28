@@ -6,32 +6,55 @@
         <title>Pokémon API</title>
     </head>
     <body>
-        <nav>
-            <h1>David's Pokédex</h1>
-            <h5>All data from the <a href="https://pokeapi.co">PokeAPI</a></h5>
-        </nav>
-        <form id="pokemon-search-form">
-            <input id="pokemon-search-input" name="pokemon-search-id" type="text" placeholder="Search by name or ID">
-            <input id="search-btn" type="submit" value="?">
-        </form>
-        <div id="pokemon-pane">
-            <h2 id="pp-name"></h2>
-            <img id="pp-img">
-            <input id="last-img-btn" type="button" value="&lt-">
-            <input id="next-img-btn" type="button" value="-&gt">
-            <div>
-                <h3>Types</h3>
-                <ul id="pp-types"></ul>
+        <div id="main">
+            <div id="left">
+                <img id="dec-pokemon-btn" class="hover" src="images/arrow.png">
             </div>
-            <div>
-                <h3>Stats</h3>
-                <table id="pp-stats"></table>
+            <div id="mid">
+                <div id="search">
+                    <form id="pokemon-search-form">
+                        <input id="search-btn" type="submit" value="?">
+                        <input id="pokemon-search-input" name="pokemon-search-id" type="text" placeholder="Search by name or ID">
+                    </form>
+                </div>
+                <div id="pokemon-pane">
+                    <div id="pp-left">
+                        <div id="img-btns">
+                            <svg id="last-img-btn" class="hover" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M24,21a1,1,0,0,1-.71-.29L16,13.41l-7.29,7.3a1,1,0,1,1-1.42-1.42l8-8a1,1,0,0,1,1.42,0l8,8a1,1,0,0,1,0,1.42A1,1,0,0,1,24,21Z"/></g><g id="frame"><rect class="cls-1" height="32" width="32"/></g></svg>
+                            <img id="pp-img">
+                            <svg id="next-img-btn" class="hover" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M24,21a1,1,0,0,1-.71-.29L16,13.41l-7.29,7.3a1,1,0,1,1-1.42-1.42l8-8a1,1,0,0,1,1.42,0l8,8a1,1,0,0,1,0,1.42A1,1,0,0,1,24,21Z"/></g><g id="frame"><rect class="cls-1" height="32" width="32"/></g></svg>
+                        </div>
+                        <div id="types-div">
+                            <ul id="pp-types"></ul>
+                        </div>
+                    </div>
+                    <div id="pp-right">
+                        <h2 id="pp-name"></h2>
+                    
+                        <div id="stats-div">
+                            <table id="pp-stats"></table>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <input id="dec-pokemon-btn" type="button" value="Previous Pokémon">
-        <input id="inc-pokemon-btn" type="button" value="Next Pokémon">
+            <div id="right">
+                <img id="inc-pokemon-btn" class="hover" src="images/arrow.png">
+            </div>
 
-        <script src="./javascripts/pokemon.js" type="module"></script>
-        <script src="./javascripts/utility.js" type="module"></script>
+            <script src="./javascripts/pokemon.js" type="module"></script>
+            <script src="./javascripts/utility.js" type="module"></script>
+        </div>
     </body>
 </html>
+
+<!-- IDS:
+pokemon-pane
+pp-name
+pp-img
+pp-types
+pp-stats
+inc-pokemon-btn
+dec-pokemon-btn
+next-img-btn
+last-img-btn
+pokemon-search-form -->

@@ -41,7 +41,7 @@ function displayPokemon(pokemon) {
 
     ppTypes.innerHTML = '';
     for (let typeObj of pokemon.types) {
-        ppTypes.append(buildElement('li', typeObj.type.name, typeObj.type.url));
+        ppTypes.append(buildElement('li', typeObj.type.name));
     }
 
     ppStats.innerHTML = '';
