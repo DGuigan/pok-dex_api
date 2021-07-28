@@ -1,4 +1,4 @@
-import { buildElement, capitalize } from '/javascripts/utility.js';
+import { buildElement, capitalize, lightenColor } from '/javascripts/utility.js';
 
 // frequesntly used html elements
 const pokePane = document.getElementById('pokemon-pane');
@@ -17,31 +17,74 @@ let nextURL = `${baseURL}pokemon?limit=${pokemonLimit}`;
 let previousURL = null;
 
 const spriteKeys = [
-                    'front_default', 
-                    'back_default', 
-                    'front_female', 
-                    'back_female', 
-                    'front_shiny', 
-                    'back_shiny', 
-                    'front_shiny_female',
-                    'back_shiny_female', 
-                ];
+    'front_default', 
+    'back_default', 
+    'front_female', 
+    'back_female', 
+    'front_shiny', 
+    'back_shiny', 
+    'front_shiny_female',
+    'back_shiny_female', 
+];
 let spriteIndex = 0;
 let spriteLinks = {};
 
+const pokemonColors = {
+    'black' : '#000000',
+    'blue' : '#41a4e6',
+    'brown' : '#ac7b5a',
+    'gray' : '#524a4a',
+    'green' : '#5a9c39',
+    'pink' : '#ffacbd',
+    'purple' : '#b473bd',
+    'red' : '#e84600',
+    'white' : '#eeeeff',
+    'yellow' : '#ffcd4a',
+};
+let colorKey = 0;
+
+const typeColors = {
+    'normal' : '#aeadaa',
+    'fighting' : '#521f12',
+    'flying' : '#647bd7',
+    'poison' : '#994d99',
+    'ground' : '#cfaf54',
+    'rock' : '#b59e57',
+    'bug' : '#a4b41c',
+    'ghost' : '#605fb1',
+    'steel' : '#b6b6c5',
+    'fire' : '#ea3e0b',
+    'water' : '#3495f4',
+    'grass' : '#6abd2e',
+    'electric' : '#f8b713',
+    'psychic' : '#eb4680',
+    'ice' : '#9ae3fd',
+    'dragon' : '#775fe2',
+    'dark' : '#4f3a2d',
+    'fairy' : '#efaff1',
+    'unknown' : '#ffffff',
+    'shadow' : '#000000',
+}
+
 function displayPokemon(pokemon) {
-    console.log(pokemon);
+    // console.log(pokemon);
     spriteIndex = 0;
     spriteLinks = pokemon.sprites;
     
     ppImg.src = pokemon.sprites.front_default;
     ppImg.alt = pokemon.name;
+    ppImg.style.backgroundColor = pokemonColors[colorKey];
     
     ppName.innerHTML = capitalize(pokemon.name);
 
     ppTypes.innerHTML = '';
+    let firstType = true;
     for (let typeObj of pokemon.types) {
-        ppTypes.append(buildElement('li', typeObj.type.name));
+        let type = buildElement('li', typeObj.type.name);
+        type.style.color = typeColors[typeObj.type.name];
+        type.style.backgroundColor = lightenColor(typeColors[typeObj.type.name]);
+        type.style.borderColor = typeColors[typeObj.type.name];
+        ppTypes.append(type);
     }
 
     for (let statObj of pokemon.stats) {
@@ -55,7 +98,7 @@ function updatePokemonSprite(step) {
         spriteIndex = spriteIndex + step;
         if (spriteIndex < 0) spriteIndex = spriteKeys.length - 1;
         if (spriteIndex >= spriteKeys.length) spriteIndex = 0;
-        console.log(`Index: ${spriteIndex}\nLink: ${spriteLinks[spriteKeys[spriteIndex]]}`);
+        //console.log(`Index: ${spriteIndex}\nLink: ${spriteLinks[spriteKeys[spriteIndex]]}`);
     }
     while (spriteLinks[spriteKeys[spriteIndex]] == null && loopCount++ < spriteKeys.length); //prevent infinite loop in case of no sprites
 
@@ -82,9 +125,20 @@ function loadPokemon(url) {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                resolve(data);
+                getPokemonColor(data.species.url).then(() => {
+                    resolve(data);
+                });
             });
     });
+}
+
+function getPokemonColor(speciesURL) {
+    return new Promise((resolve, reject) => {
+        fetch(speciesURL).then(response => response.json()).then(data => {
+            colorKey = data.color.name;
+            resolve();
+        });
+    })
 }
 
 /* event listeners */
@@ -96,7 +150,6 @@ document.getElementById('inc-pokemon-btn').addEventListener('click', event => {
         loadPokemon(pokemonURL).then(pokemonObj => displayPokemon(pokemonObj));
     }
     else if (pokemonIndex == pokemonList.length - 1 && nextURL) {
-        console.log("new list");
         pokemonIndex = 0;
         loadPokemonList(nextURL).then(() => loadPokemon(pokemonList[pokemonIndex].url)).then(pokemonObj => displayPokemon(pokemonObj));
     }
@@ -109,10 +162,8 @@ document.getElementById('dec-pokemon-btn').addEventListener('click', event => {
         loadPokemon(pokemonURL).then(pokemonObj => displayPokemon(pokemonObj));
     }
     else if (pokemonIndex == 0 && previousURL) {
-        console.log("new list");
         pokemonIndex = pokemonList.length - 1;
         loadPokemonList(previousURL).then(() => loadPokemon(pokemonList[pokemonIndex].url)).then(pokemonObj => displayPokemon(pokemonObj));
-        console.log(pokemonIndex);
     }
 });
 

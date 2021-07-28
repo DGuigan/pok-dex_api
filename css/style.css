@@ -93,11 +93,9 @@ body {
     background-color: var(--primary-colour);
 }
 
-#pokemon-search-input::placeholder {
-    color: var(--secondary-colour);
-}
 #pokemon-search-form > * {
     background-color: var(--primary-colour);
+    color: var(--secondary-colour);
     border: none;
 }
 
