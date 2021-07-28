@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
 
-    cursor: url("../images/pokeball_closed.png"), auto;
+    cursor: url("../images/cursors/pokeball_closed.png"), auto;
 }
 
 ul {
@@ -166,7 +166,7 @@ body {
 }
 
 .hover {
-    cursor: url("../images/pokeball_open.png"), auto;
+    cursor: url("../images/cursors/pokeball_open.png"), auto;
 }
 
 td.center-text {
