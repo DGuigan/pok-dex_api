@@ -1,7 +1,13 @@
+:root {
+    --primary-colour: #333;
+    --secondary-colour: grey;
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    cursor: url("../images/pokeball_closed.png"), auto;
 }
 
 ul {
@@ -17,6 +23,7 @@ body {
     justify-content: center;
     align-items: center;
 
+    background: var(--secondary-colour);
 
     width: 100vw;
     height: 100vh;
@@ -51,19 +58,27 @@ body {
 #pokemon-pane {
     display: flex;
     padding: 10px;
-    background-color: red;
-    border: 5px outset rgb(200, 17, 17);
+    background: var(--primary-colour);
+    color: var(--secondary-colour);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+    width: 600px;
+    height: 400px;
 }
 
 #pp-left {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 10px;
+
+    flex-grow: 1;
 }
 
 #pp-right {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     padding: 10px;
 }
 
@@ -73,25 +88,25 @@ body {
 }
 
 #pokemon-search-form {
-    background-color: grey;
+    background-color: var(--primary-colour);
 }
 
 #pokemon-search-input::placeholder {
-    color: black;
+    color: var(--secondary-colour);
 }
 #pokemon-search-form > * {
-    background-color: grey;
+    background-color: var(--primary-colour);
     border: none;
 }
 
 #search-btn {
-    border: 3px outset grey;
+    border: 3px outset var(--primary-colour);
 }
 
 #img-btns {
     display: flex;
-    justify-content: space-evenly;
-
+    align-items: center;
+    width: 100%;
 }
 
 #pp-name {
@@ -99,19 +114,55 @@ body {
 }
 
 #stats-div {
-    border: 2px dashed black;
+    border: 2px dashed var(--secondary-colour);
     border-radius: 10px;
     padding: 10px;
 }
 
 #pp-types li {
     text-align: center;
-    height: 25px;
-    border-radius: 12.5px;
-    border: 3px solid black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 3px solid var(--secondary-colour);
+    color: var(--secondary-colour);
+    margin: 10px;
+}
+
+#pp-types {
+    display: flex;
 }
 
 #pp-img {
-    border: 10px ridge grey;
+    border: 7px solid var(--secondary-colour);
     border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+    flex-grow: 1;
+}
+
+#dec-pokemon-btn {
+    width: 30px;
+}
+
+#inc-pokemon-btn {
+    width: 30px;
+    transform: rotate(180deg);
+}
+
+#next-img-btn {
+    width: 32px;
+    height: 32px;
+    transform: rotate(90deg);
+    fill: var(--secondary-colour);
+}
+
+#last-img-btn {
+    width: 32px;
+    height: 32px;
+    transform: rotate(270deg);
+    fill: var(--secondary-colour);
+}
+
+.hover {
+    cursor: url("../images/pokeball_open.png"), auto;
 }

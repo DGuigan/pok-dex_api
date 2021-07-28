@@ -8,7 +8,7 @@
     <body>
         <div id="main">
             <div id="left">
-                <input id="dec-pokemon-btn" type="button" value="&lt|">
+                <img id="dec-pokemon-btn" class="hover" src="images/arrow.png">
             </div>
             <div id="mid">
                 <div id="search">
@@ -19,10 +19,10 @@
                 </div>
                 <div id="pokemon-pane">
                     <div id="pp-left">
-                        <img id="pp-img">
                         <div id="img-btns">
-                            <input id="last-img-btn" type="button" value="&lt-">
-                            <input id="next-img-btn" type="button" value="-&gt">
+                            <svg id="last-img-btn" class="hover" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M24,21a1,1,0,0,1-.71-.29L16,13.41l-7.29,7.3a1,1,0,1,1-1.42-1.42l8-8a1,1,0,0,1,1.42,0l8,8a1,1,0,0,1,0,1.42A1,1,0,0,1,24,21Z"/></g><g id="frame"><rect class="cls-1" height="32" width="32"/></g></svg>
+                            <img id="pp-img">
+                            <svg id="next-img-btn" class="hover" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M24,21a1,1,0,0,1-.71-.29L16,13.41l-7.29,7.3a1,1,0,1,1-1.42-1.42l8-8a1,1,0,0,1,1.42,0l8,8a1,1,0,0,1,0,1.42A1,1,0,0,1,24,21Z"/></g><g id="frame"><rect class="cls-1" height="32" width="32"/></g></svg>
                         </div>
                         <div id="types-div">
                             <ul id="pp-types"></ul>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div id="right">
-                <input id="inc-pokemon-btn" type="button" value="|&gt">
+                <img id="inc-pokemon-btn" class="hover" src="images/arrow.png">
             </div>
 
             <script src="./javascripts/pokemon.js" type="module"></script>
