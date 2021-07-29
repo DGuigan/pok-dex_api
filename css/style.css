@@ -8,6 +8,8 @@
     padding: 0;
 
     cursor: url("../images/cursors/pokeball_closed.png"), auto;
+
+    font-family: 'Roboto Mono', monospace;
 }
 
 ul {
@@ -169,10 +171,6 @@ body {
 
 td.center-text {
     text-align: center;
-}
-
-td {
-    width: 50%;
 }
 
 table {
